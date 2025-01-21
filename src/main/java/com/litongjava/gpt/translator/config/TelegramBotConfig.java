@@ -12,13 +12,17 @@ import com.litongjava.hook.HookCan;
 import com.litongjava.telegram.can.TelegramClientCan;
 import com.litongjava.tio.utils.environment.EnvUtils;
 
-//@AConfiguration
+@AConfiguration
 public class TelegramBotConfig {
 
   @Initialization
   public void config() {
     // 在此填写您的 Bot Token
     String botAuthToken = EnvUtils.getStr("telegram.bot.auth.token");
+    
+    if(botAuthToken== null) {
+      return;
+    }
 
     TelegramBotsLongPollingApplication botsApplication = configBot(botAuthToken);
     configClient(botAuthToken);
