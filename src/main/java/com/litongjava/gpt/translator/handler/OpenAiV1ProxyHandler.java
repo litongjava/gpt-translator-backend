@@ -11,7 +11,6 @@ import com.jfinal.kit.Kv;
 import com.litongjava.gpt.translator.utils.OpenAiResponseUtils;
 import com.litongjava.model.body.RespBodyVo;
 import com.litongjava.openai.client.OpenAiClient;
-import com.litongjava.openai.constants.OpenAiModels;
 import com.litongjava.tio.boot.http.TioRequestContext;
 import com.litongjava.tio.boot.utils.OkHttpResponseUtils;
 import com.litongjava.tio.core.ChannelContext;
