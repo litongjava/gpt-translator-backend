@@ -182,7 +182,7 @@ public class PdfDocumentService {
     ChatResponseUsage usage = chatResponseVo.getUsage();
     TableInput saveInput = TableInput.by("id", id).set("target", imagePath).set("content", content)
         //
-        .set("elapsed", System.currentTimeMillis() - start).set("model", OpenAiModels.gpt_4o)
+        .set("elapsed", System.currentTimeMillis() - start).set("model", OpenAiModels.GPT_4O)
         //
         .set("system_fingerprint", chatResponseVo.getSystem_fingerprint()).set("completion_tokens", usage.getCompletion_tokens())
         //

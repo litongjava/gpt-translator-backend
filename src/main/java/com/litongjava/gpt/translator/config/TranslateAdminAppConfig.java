@@ -5,6 +5,7 @@ import com.litongjava.annotation.Initialization;
 import com.litongjava.gpt.translator.handler.OpenAiV1ProxyHandler;
 import com.litongjava.gpt.translator.handler.TranslatorRequestHandler;
 import com.litongjava.jfinal.aop.Aop;
+import com.litongjava.llm.handler.ApiChatHandler;
 import com.litongjava.tio.boot.admin.config.TioAdminControllerConfiguration;
 import com.litongjava.tio.boot.admin.config.TioAdminDbConfiguration;
 import com.litongjava.tio.boot.admin.config.TioAdminHandlerConfiguration;
@@ -47,6 +48,18 @@ public class TranslateAdminAppConfig {
       OpenAiV1ProxyHandler openaiV1ChatHandler = new OpenAiV1ProxyHandler();
       r.add("/openai/v1/models", openaiV1ChatHandler::models);
       r.add("/openai/v1/chat/completions", openaiV1ChatHandler::completions);
+      
+      ApiChatHandler apiChatHandler = Aop.get(ApiChatHandler.class);
+      r.add("/api/v1/chat/recommend", apiChatHandler::recommend);
+      r.add("/api/v1/chat/create", apiChatHandler::createSession);
+      r.add("/api/v1/chat/list", apiChatHandler::listSession);
+      r.add("/api/v1/chat/delete", apiChatHandler::deleteSession);
+      r.add("/api/v1/chat/set/name", apiChatHandler::setSessionName);
+      r.add("/api/v1/chat/like", apiChatHandler::like);
+      r.add("/api/v1/chat/history", apiChatHandler::getChatHistory);
+      r.add("/api/v1/chat/stop", apiChatHandler::stop);
+      r.add("/api/v1/chat/send", apiChatHandler::send);
+      
     }
 
     // 配置控制器
