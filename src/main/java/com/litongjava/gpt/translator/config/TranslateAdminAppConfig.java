@@ -24,7 +24,9 @@ public class TranslateAdminAppConfig {
         //
         "/api/document/export/*", "/translate/text", "/telegram/webhook",
         //
-        "/api/v1/telegram/sendMessage","/openai/v1/*" };
+        "/api/v1/telegram/sendMessage", "/openai/v1/*",
+        //
+        "/api/v1/chat/*" };
     // 配置数据库相关
     new TioAdminDbConfiguration().config();
     new TioAdminSaTokenConfiguration().config();
@@ -48,7 +50,7 @@ public class TranslateAdminAppConfig {
       OpenAiV1ProxyHandler openaiV1ChatHandler = new OpenAiV1ProxyHandler();
       r.add("/openai/v1/models", openaiV1ChatHandler::models);
       r.add("/openai/v1/chat/completions", openaiV1ChatHandler::completions);
-      
+
       ApiChatHandler apiChatHandler = Aop.get(ApiChatHandler.class);
       r.add("/api/v1/chat/recommend", apiChatHandler::recommend);
       r.add("/api/v1/chat/create", apiChatHandler::createSession);
@@ -59,7 +61,7 @@ public class TranslateAdminAppConfig {
       r.add("/api/v1/chat/history", apiChatHandler::getChatHistory);
       r.add("/api/v1/chat/stop", apiChatHandler::stop);
       r.add("/api/v1/chat/send", apiChatHandler::send);
-      
+
     }
 
     // 配置控制器

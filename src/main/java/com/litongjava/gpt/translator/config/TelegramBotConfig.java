@@ -5,14 +5,13 @@ import org.telegram.telegrambots.longpolling.TelegramBotsLongPollingApplication;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
 
-import com.litongjava.annotation.AConfiguration;
 import com.litongjava.annotation.Initialization;
 import com.litongjava.gpt.translator.bots.TranslateBot;
 import com.litongjava.hook.HookCan;
 import com.litongjava.telegram.can.TelegramClientCan;
 import com.litongjava.tio.utils.environment.EnvUtils;
 
-@AConfiguration
+//@AConfiguration
 public class TelegramBotConfig {
 
   @Initialization
